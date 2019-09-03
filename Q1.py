@@ -3,15 +3,15 @@ class Solution:
 
 		# Variables for tracking
 		answer = []
-		temp_dict= {}
+		dict= {}
 
 		# Checking for membership in my dictionary and returning a list.
 		for i, num in enumerate(nums):
-			if num in temp_dict:
-				answer.append(temp_dict[num])
+			if num in dict:
+				answer.append(dict[num])
 				answer.append(i)
 				break
 			else:
-				temp_dict[target-num] = i
+				dict[target-num] = i
 
 		return answer
