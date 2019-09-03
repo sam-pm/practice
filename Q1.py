@@ -1,11 +1,17 @@
 class Solution:
 	def twoSum(self, nums, target):
-		#print("The target number is: "+str(target))
+
+		# Variables for tracking
 		answer = []
-		for x in nums:
-			if ((target - x) in nums and (target-x) != x):
-				answer.append(nums.index(x))
-				answer.append(nums.index(target-x))
-				print(answer)
+		temp_dict= {}
+
+		# Checking for membership in my dictionary and returning a list.
+		for i, num in enumerate(nums):
+			if num in temp_dict:
+				answer.append(temp_dict[num])
+				answer.append(i)
 				break
+			else:
+				temp_dict[target-num] = i
+
 		return answer
