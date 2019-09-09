@@ -3,11 +3,11 @@ public class Q2{
 
     // Solution function
     public ListNode addTwoNumbers(ListNode l1, ListNode l2){
-	
+
 	// Iterate through each list and build a string
 	String temp_1 = "";
 	while(l1 != null){
-	    temp_1 = temp_1 + Integer.toString(l1.val);	
+	    temp_1 = temp_1 + Integer.toString(l1.val);
 	    l1 = l1.next;
 	}
 	String temp_2 = "";
@@ -16,8 +16,8 @@ public class Q2{
 	    l2 = l2.next;
 	}
 
-	// Add the numbers and convert the result to a reversed Node string
-	String string_answer = revStr(Integer.toString(Integer.parseInt(revStr(temp_1)) + Integer.parseInt(revStr(temp_2))));
+	// Build 
+	String string_answer = revDoubleStr(Double.toString(Double.parseDouble(revStr(temp_1)) + Double.parseDouble(revStr(temp_2))));
 
 	ListNode answerNode = new ListNode(Integer.parseInt(Character.toString(string_answer.charAt(0))));
 	ListNode iterableNode = answerNode;
@@ -39,6 +39,15 @@ public class Q2{
 	}
 	return reversed;
     }
-    
+
+	// A work around for handling very large numbers. Unnessary when dealing only with ints.
+	public String revDoubleStr(String x){
+	String reversed = "";
+	for(int i = 3; i <= x.length(); i++){ // Setting i to 3 removes the "0." that leads the reversed string.
+		reversed = reversed + x.charAt(x.length()-i);
+	}
+	return reversed;
+	}
+
 
 }
