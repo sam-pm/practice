@@ -22,6 +22,9 @@ public class Q1{
 
       return solution;
     }
-
-
 }
+
+/*
+Runtime: 2 ms, faster than 98.83% of Java online submissions for Two Sum.
+Memory Usage: 37.8 MB, less than 98.29% of Java online submissions for Two Sum.
+*/

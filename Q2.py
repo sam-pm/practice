@@ -32,10 +32,7 @@ class Solution:
             temp_node = temp_node.next
 
 
-
-        # while (answer_list != None):
-        #     if answer_list.next == None:
-        #         print(str(answer_list.val), end='')
-        #     else:
-        #         print(str(answer_list.val)+ " => ", end='')
-        #     answer_list = answer_list.next
+"""
+Runtime: 80 ms, faster than 56.79% of Python3 online submissions for Add Two Numbers.
+Memory Usage: 14 MB, less than 5.67% of Python3 online submissions for Add Two Numbers.
+"""

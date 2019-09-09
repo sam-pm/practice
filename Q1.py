@@ -15,3 +15,9 @@ class Solution:
 				dict[target-num] = i
 
 		return answer
+
+"""
+Runtime: 60 ms, faster than 68.91% of Python3 online submissions for Two Sum.
+Memory Usage: 15.2 MB, less than 5.11% of Python3 online submissions for Two Sum.
+
+"""
