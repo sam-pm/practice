@@ -1,53 +1,54 @@
+import java.math.BigInteger;
+import java.util.Stack;
+import java.text.DecimalFormat;
 
 public class Q2{
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+	
+	// Variables and data structures
+	String str_list_1 = "";
+	String str_list_2 = "";
+	DecimalFormat removeDecimal = new DecimalFormat("#");
+	Stack<Integer> s1 = new Stack<Integer>();
+	Stack<Integer> s2 = new Stack<Integer>();
+	ListNode temp, finalAnswer;
 
-    // Solution function
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2){
-
-	// Iterate through each list and build a string
-	String temp_1 = "";
+	// Push ListNode details to stack
 	while(l1 != null){
-	    temp_1 = temp_1 + Integer.toString(l1.val);
+	    s1.push(l1.val);
 	    l1 = l1.next;
 	}
-	String temp_2 = "";
-	while (l2 != null){
-	    temp_2 = temp_2 + Integer.toString(l2.val);
+	while(l2 != null){
+	    s2.push(l2.val);
 	    l2 = l2.next;
 	}
 
-	// Build 
-	String string_answer = revDoubleStr(Double.toString(Double.parseDouble(revStr(temp_1)) + Double.parseDouble(revStr(temp_2))));
+	// Now unwind the stacks and build strings to be able to interpret the number
+	while(!s1.empty()){
+	    str_list_1 = str_list_1 + s1.pop();
+	}
+	BigInteger int1 = new BigInteger(str_list_1);
+	while(!s2.empty()){
+	    str_list_2 = str_list_2 + s2.pop();
+	}
+	BigInteger int2 = new BigInteger(str_list_2);
 
-	ListNode answerNode = new ListNode(Integer.parseInt(Character.toString(string_answer.charAt(0))));
-	ListNode iterableNode = answerNode;
-	for(int i = 1; i < string_answer.length(); i++){
-	    iterableNode.next = new ListNode(Integer.parseInt(Character.toString(string_answer.charAt(i))));
-	    iterableNode = iterableNode.next;
+	
+	String answer = (int1.add(int2)).toString();
+        
+	// Now that the List nodes have been unpacked the addition and converting back to ListNode occurs
+	finalAnswer = new ListNode(Integer.parseInt(String.valueOf(answer.charAt(answer.length()-1))));
+	temp = finalAnswer;
+
+	for(int i = 2; i <= answer.length(); i++){
+	    temp.next = new ListNode(Integer.parseInt(String.valueOf(answer.charAt(answer.length()-i))));
+	    temp = temp.next;
 	}
 
-	// Finished!
-	return answerNode;
+	// Return a list node
+	return finalAnswer;
+
     }
-
-
-    // A reverse method for strings that allows for ignoring the StringBuilder class
-    public String revStr(String x){
-	String reversed = "";
-	for(int i = 1; i <= x.length(); i++){
-	    reversed = reversed + x.charAt(x.length()-i);
-	}
-	return reversed;
-    }
-
-	// A work around for handling very large numbers. Unnessary when dealing only with ints.
-	public String revDoubleStr(String x){
-	String reversed = "";
-	for(int i = 3; i <= x.length(); i++){ // Setting i to 3 removes the "0." that leads the reversed string.
-		reversed = reversed + x.charAt(x.length()-i);
-	}
-	return reversed;
-	}
 
 
 }
