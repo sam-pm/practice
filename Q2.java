@@ -47,8 +47,10 @@ public class Q2{
 
 	// Return a list node
 	return finalAnswer;
-
     }
-
-
 }
+
+/*
+Runtime: 35 ms, faster than 5.08% of Java online submissions for Add Two Numbers.
+Memory Usage: 47.3 MB, less than 5.01% of Java online submissions for Add Two Numbers.
+*/
