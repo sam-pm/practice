@@ -2,7 +2,7 @@ import java.util.PriorityQueue;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
-import java.util.Arrays;
+
 
 public class Q3{
 
@@ -38,3 +38,7 @@ public class Q3{
 	return pq.peek();
     }
 }
+/*
+Runtime: 209 ms, faster than 5.02% of Java online submissions for Longest Substring Without Repeating Characters.
+Memory Usage: 87.3 MB, less than 5.20% of Java online submissions for Longest Substring Without Repeating Characters.
+*/
