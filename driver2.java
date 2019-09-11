@@ -2,8 +2,14 @@ public class driver2{
 
     public static void main(String[] args){
 	Q3 s = new Q3();
-	int total = s.lengthOfLongestSubstring(getAlphaNumericString(10));
-	System.out.println(total);
+	int total = s.lengthOfLongestSubstring(getAlphaNumericString(5));
+        System.out.println(total);
+	System.out.println(s.lengthOfLongestSubstring(""));
+	System.out.println(s.lengthOfLongestSubstring("dvdf"));
+	System.out.println(s.lengthOfLongestSubstring("ab"));
+	System.out.println(s.lengthOfLongestSubstring("aab"));
+	System.out.println(s.lengthOfLongestSubstring("aaaab"));
+	System.out.println(s.lengthOfLongestSubstring("aaaaaaaab"));
 	
     }
 
@@ -12,7 +18,8 @@ public class driver2{
         // chose a Character random from this String 
         String AlphaNumericString = // "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 	    // + "0123456789"
-	     "abcdefghijklmnopqrstuvxyz"; 
+	    // "abcdefghijklmnopqrstuvxyz";
+	    "abcdef";
   
         // create StringBuffer size of AlphaNumericString 
         StringBuilder sb = new StringBuilder(n); 
