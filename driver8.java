@@ -10,6 +10,11 @@ public class driver8{
 
 	System.out.println(s.myAtoi("  2147483647"));
 	System.out.println(s.myAtoi("  -2147483648"));
-	
+
+	System.out.println("plus minus tests");
+	System.out.println(s.myAtoi("+-2"));
+	System.out.println(s.myAtoi("+-3"));
+	System.out.println(s.myAtoi("+  - 4"));
+	System.out.println(s.myAtoi("-   3"));
     }
 }
