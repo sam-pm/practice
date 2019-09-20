@@ -16,25 +16,22 @@ public class Q10{
 	// Interpret the pattern defined by p
 	for(int i = 0; i < p.length(); i++){
 	    int char_val = p.charAt(i);
-	    boolean final_loop = i+1 == p.length();
 	    
 	    // This checks for a valid char
-	    if(char_val != 42 && !charSet){
-		charSet = true;
-	    }else if(char_val == 42){ // Skip the * character as it should already be counted.
-		continue;
-	    }
-
-		
-	    // Now build the pattern for the char
-	    if(charSet && p.charAt(i+1) == 42){
-		currentPNode = new PatternNode(p.charAt(i), Integer.MAX_VALUE);
-	    }else{
+	    if(char_val != 42 && i+1 == p.length()){
 		currentPNode = new PatternNode(p.charAt(i), 1);
+		PN_list.add(currentPNode);
+	    }else if(char_val == 42 && charSet){ // Skip the * character as it should already be counted.
+		currentPNode = new PatternNode(p.charAt(i-1), Integer.MAX_VALUE);
+		charSet = false;
+		PN_list.add(currentPNode);
+	    }else if(char_val !=42 && !charSet){
+		charSet = true;
+	    }else{
+		currentPNode = new PatternNode(p.charAt(i-1), 1);
+		PN_list.add(currentPNode);
 	    }
 	    
-	    charSet = false;
-	    PN_list.add(currentPNode);
 	}
 
 	
