@@ -16,5 +16,8 @@ public class driver8{
 	System.out.println(s.myAtoi("+-3"));
 	System.out.println(s.myAtoi("+  - 4"));
 	System.out.println(s.myAtoi("-   3"));
+
+	double x = 2557483647;
+	System.out.println(Double(x)
     }
 }
