@@ -13,6 +13,8 @@ public class driver21{
 	int[] i3 = new int[5];
 	int[] i4 = new int[5];
 
+
+	// Build the sorted ListNodes
 	for(int i = 0; i < 3; i++){
 	    i1[i] = r.nextInt(99);
 	    i2[i] = r.nextInt(99);
@@ -26,7 +28,6 @@ public class driver21{
 	Arrays.sort(i2);
 	Arrays.sort(i3);
 	Arrays.sort(i4);
-	
 	l1 = new ListNode(i1[0]);
 	l2 = new ListNode(i2[0]);
 	t1 = l1;
@@ -37,7 +38,6 @@ public class driver21{
 	    t1 = t1.next;
 	    t2 = t2.next;
 	}
-
 	l3 = new ListNode(i3[0]);
 	l4 = new ListNode(i4[0]);
 	t3 = l3;
@@ -49,14 +49,45 @@ public class driver21{
 	    t4 = t4.next;
 	}
 
+	
 	// Tests
-	if(s.mergeTwoLists(l1,l2) != null) tr++;
-	if(s.mergeTwoLists(l3,l4) != null) tr++;
+	System.out.println("TEST #1");
+	ListNode test1 = s.mergeTwoLists(l1, l2);
+	if(test1 != null){
+	    nodePrint(l1);
+	    nodePrint(l2);
+	    nodePrint(test1);
+	    tr++;
+	}
 
+	System.out.println("\nTEST #2");
+	ListNode test2 = s.mergeTwoLists(l3, l4);
+	if(test2 != null){
+	    nodePrint(l3);
+	    nodePrint(l4);
+	    nodePrint(test2);
+	    tr++;
+	}
+
+	
 	// Results
-	System.out.println("Testing Results");
+	System.out.println("\nTesting Results");
 	System.out.println(tr + "/2 tests passed");
 	
+    }
+
+    public static void nodePrint(ListNode ln){
+	System.out.print("List: ");
+	while(ln != null){
+	    if(ln.next != null){
+		System.out.print(ln.val + " -> ");
+		ln = ln.next;
+	    }else{
+		System.out.print(ln.val);
+		break;
+	    }
+	}
+	System.out.println("");
     }
     
 }
